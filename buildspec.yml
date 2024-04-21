@@ -1,13 +1,15 @@
 version: 0.2
 
 phases:
+  install:
+    runtime-versions:
+      nodejs: 14
   pre_build:
     commands:
-      - npm install
+      - npm ci --ignore-scripts  # Install dependencies without executing pre/post install scripts
 
   build:
     commands:
-      - npm install react-scripts # Ensure react-scripts is installed
       - npm run build
 
   post_build:
@@ -16,9 +18,7 @@ phases:
 
 artifacts:
   files:
-    - 'public/**/*'
-    - 'src/**/*'
+    - 'build/**/*'
     - 'package.json'
     - 'appspec.yml'
     - 'scripts/**/*'
-    - 'build/**/*'
