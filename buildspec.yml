@@ -7,6 +7,7 @@ phases:
 
   build:
     commands:
+      - npm install react-scripts # Ensure react-scripts is installed
       - npm run build
 
   post_build:
@@ -21,4 +22,3 @@ artifacts:
     - 'appspec.yml'
     - 'scripts/**/*'
     - 'build/**/*'
-
